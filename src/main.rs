@@ -7,7 +7,7 @@ fn main() {
         let real_volume = real_volume(dimension);
         let accuracy = calculate_accuracy(volume, real_volume);
         println!("Количество измерений: {dimension} | Объем: {volume} | Реальный объем: {real_volume} | Точность: {accuracy}%");
-    }    
+    }
 }
 
 fn generate_point(dimensions: usize) -> Vec<f64> {
