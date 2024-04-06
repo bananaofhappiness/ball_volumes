@@ -30,7 +30,7 @@ fn point_is_in_sphere(point: &Vec<f64>) -> bool {
 fn calculate_volume(dimensions: usize) -> f64 {
     let mut overall_points = 0;
     let mut points_in_sphere = 0;
-    for _ in 0..10000000 {
+    for _ in 0..10_000_000 {
         let point = generate_point(dimensions);
         overall_points += 1;
         if point_is_in_sphere(&point) {
