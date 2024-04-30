@@ -19,7 +19,7 @@ fn generate_point(dimensions: usize) -> Vec<f64> {
     return coordinates;
 }
 
-fn point_is_in_sphere(point: &Vec<f64>) -> bool {
+fn point_is_in_ball(point: &Vec<f64>) -> bool {
     let mut sum: f64 = 0.0;
     for coordinate in point {
         sum += coordinate.powf(2.0);
@@ -29,16 +29,16 @@ fn point_is_in_sphere(point: &Vec<f64>) -> bool {
 
 fn calculate_volume(dimensions: usize) -> f64 {
     let mut overall_points = 0;
-    let mut points_in_sphere = 0;
+    let mut points_in_ball = 0;
     for _ in 0..10_000_000 {
         let point = generate_point(dimensions);
         overall_points += 1;
-        if point_is_in_sphere(&point) {
-            points_in_sphere += 1;
+        if point_is_in_ball(&point) {
+            points_in_ball += 1;
         }
     }
-    let ratio_of_points_in_sphere = points_in_sphere as f64 / overall_points as f64;
-    let volume = ratio_of_points_in_sphere * 2_i32.pow(dimensions as u32) as f64;
+    let ratio_of_points_in_ball = points_in_ball as f64 / overall_points as f64;
+    let volume = ratio_of_points_in_ball * 2_i32.pow(dimensions as u32) as f64;
     return volume;
 }
 
